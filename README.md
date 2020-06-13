@@ -12,10 +12,10 @@ Use [rstudio](https://rstudio.com/) IDE.
 - USWDS via npm
 
 ## Instructions
-Copy over USWDS using:
+Copy over USWDS SCSS using:
 
 ```bash
-rsync -r node_modules/uswds/dist/. .
+rsync -r node_modules/uswds/dist/scss. ./
 ```
 
 We'll use this to update USWDS in the future so it only updates files that
