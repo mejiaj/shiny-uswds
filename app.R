@@ -6,12 +6,17 @@ sass(
   output="www/css/uswds.css"
 )
 
+
+
 ui <- fluidPage(
   tags$head(
     tags$link(
       href="css/uswds.css",
       rel ="stylesheet",
       type="text/css"
+    ),
+    tags$script(
+      src = "js/uswds.min.js"
     )
   ),
   titlePanel("USWDS + Shiny"),
@@ -94,24 +99,58 @@ ui <- fluidPage(
     ),
     div(
       class="usa-form",
+      tags$label(
+        class="usa-label",
+        "Range Slider",
+      ),
       tags$input(
         id="range-slider",
         class="usa-range",
         type="range",
         min="0",
+        label="testing label",
         max="100",
         step="10",
         value="20",
-        HTML("<label class='usa-label' for='range-slider'>Range</label>")
       )
     ),
     div(
-      class="usa-combo-box",
-      tags$select(
-        id="combobox",
-        class="usa-select usa-combo-box__select",
-        name="fruit",
-        HTML("<label class='usa-label' for='combobox'>Select a fruit</label>")
+      class="usa-form",
+      div(
+        class="usa-combo-box",
+        tags$label(
+          class="usa-label",
+          "Combobox",
+        ),
+        tags$select(
+          id="combobox",
+          class="usa-select usa-combo-box__select",
+          name="fruit"
+        )
+      ),
+      div(
+        class="usa-character-count",
+        div(
+          class="usa-form-group",
+          tags$label(
+            class="usa-label",
+            "Character count",
+          ),
+          tags$input(
+            type="text",
+            id="my-text-input",
+            class="usa-input usa-character-count__field",
+            label="my-text-input",
+            name="my-text-input",
+            maxlength="30",
+            name="my--hint-input",
+            ariaDescribedby="with-hint-input-info with-hint-input-hint"
+          ),
+          span(
+            class="usa-hint usa-character-count__message",
+            id="my-hint-input-hint"
+          ),
+        )
       )
     )
   )
